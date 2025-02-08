@@ -15,11 +15,6 @@
         Rekap Pelanggaran
       </div>
       <div class="flex space-x-4 items-center">
-        <div class="space-x-4">
-          <a href="#" class="text-gray-700 hover:text-green-600 transition duration-300">Beranda</a>
-          <a href="#" class="text-gray-700 hover:text-green-600 transition duration-300">Tentang</a>
-          <a href="#" class="text-gray-700 hover:text-green-600 transition duration-300">Kontak</a>
-        </div>
         <!-- Tombol Login -->
         <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login"
            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">

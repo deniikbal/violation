@@ -16,7 +16,11 @@
       </div>
       <div class="flex space-x-4 items-center">
         <!-- Tombol Login -->
+<<<<<<< HEAD
         <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login" 
+=======
+        <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login"
+>>>>>>> 61cd58936f9d2c0fd73d646e1ec9b50d6ddb6204
            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
           Login
         </a>

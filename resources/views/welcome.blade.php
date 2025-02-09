@@ -33,7 +33,7 @@
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl font-bold mb-4">Rekap Pelanggaran Siswa</h1>
       <p class="text-lg mb-8">Aplikasi ini membantu sekolah dalam merekap data pelanggaran siswa secara efisien.</p>
-      <a href="#" class="bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+      <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login" class="bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
         Mulai Sekarang
       </a>
     </div>

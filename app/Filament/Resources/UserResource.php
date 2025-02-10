@@ -40,6 +40,9 @@ class UserResource extends Resource
                 ->email()
                 ->required()
                 ->unique(ignoreRecord: true), // Pastikan email unik
+            Forms\Components\Select::make('roles')
+            ->label('Roles')
+            ->relationship('roles', 'name'),
             Forms\Components\TextInput::make('password')
                 ->label('Password')
                 ->password() // Mask input sebagai password
@@ -65,9 +68,8 @@ class UserResource extends Resource
                 ->label('Email')
                 ->searchable()
                 ->sortable(),
-            Tables\Columns\TextColumn::make('created_at')
-                ->label('Dibuat Pada')
-                ->dateTime('d/m/Y H:i') // Format tanggal
+            Tables\Columns\TextColumn::make('roles.name')
+                ->label('Role')
                 ->sortable(),
             ])
             ->filters([

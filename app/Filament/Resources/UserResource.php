@@ -6,6 +6,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -40,6 +41,9 @@ class UserResource extends Resource
                 ->email()
                 ->required()
                 ->unique(ignoreRecord: true), // Pastikan email unik
+            Select::make('roles')
+            ->label('Role')
+            ->relationship('roles', 'name'),
             Forms\Components\TextInput::make('password')
                 ->label('Password')
                 ->password() // Mask input sebagai password
@@ -65,9 +69,8 @@ class UserResource extends Resource
                 ->label('Email')
                 ->searchable()
                 ->sortable(),
-            Tables\Columns\TextColumn::make('created_at')
-                ->label('Dibuat Pada')
-                ->dateTime('d/m/Y H:i') // Format tanggal
+            Tables\Columns\TextColumn::make('roles.name')
+                ->label('Role')
                 ->sortable(),
             ])
             ->filters([

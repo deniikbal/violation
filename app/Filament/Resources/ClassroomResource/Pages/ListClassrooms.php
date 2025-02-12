@@ -2,11 +2,13 @@
 
 namespace App\Filament\Resources\ClassroomResource\Pages;
 
+use App\Filament\Imports\ClassroomImporter;
 use App\Filament\Resources\ClassroomResource;
 use App\Imports\ClassroomImport;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Actions\Action;
+use Filament\Actions\ImportAction;
 use Filament\Forms\Components\FileUpload;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Validators\ValidationException;
@@ -19,11 +21,13 @@ class ListClassrooms extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
-            \EightyNine\ExcelImport\ExcelImportAction::make()
-            ->slideOver()
-            ->color("primary")
-            ->use(ClassroomImport::class),
+            // Actions\CreateAction::make(),
+            // \EightyNine\ExcelImport\ExcelImportAction::make()
+            // ->slideOver()
+            // ->color("primary")
+            // ->use(ClassroomImport::class),
+            ImportAction::make()
+                ->importer(ClassroomImporter::class)
         ];
     }
 }

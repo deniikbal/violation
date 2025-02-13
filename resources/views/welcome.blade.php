@@ -16,7 +16,7 @@
       </div>
       <div class="flex space-x-4 items-center">
         <!-- Tombol Login -->
-        <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login"
+        <a href="{{ route('filament.admin.auth.login') }}"
            class="bg-slate-600 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
           Login
         </a>
@@ -28,7 +28,7 @@
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl font-bold mb-4">Rekap Pelanggaran Siswa</h1>
       <p class="text-lg mb-8">Aplikasi ini membantu sekolah dalam merekap data pelanggaran siswa secara efisien.</p>
-      <a href="https://rekapin.sman1bantarujeg.sch.id/admin/login" class="bg-slate-700 hover:bg-slate-800 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+      <a href="{{ route('filament.admin.auth.login') }}" class="bg-slate-700 hover:bg-slate-800 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
         Mulai Sekarang
       </a>
     </div>

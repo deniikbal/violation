@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\StudentResource\RelationManagers;
 
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Category;
@@ -15,6 +16,9 @@ use Filament\Resources\RelationManagers\RelationManager;
 class ViolationsRelationManager extends RelationManager
 {
     protected static string $relationship = 'violations';
+
+    protected static ?string $label = 'Pelanggaran';
+    protected static ?string $pluralLabel = 'Daftar Pelanggaran';
 
     public function form(Form $form): Form
     {
@@ -44,6 +48,7 @@ class ViolationsRelationManager extends RelationManager
 
                 Forms\Components\DatePicker::make('date')
                     ->label('Tanggal')
+                    ->maxDate(Carbon::today()->format('Y-m-d'))
                     ->required(),
             ]);
     }
@@ -51,10 +56,11 @@ class ViolationsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('name')
+            ->heading(null)
             ->columns([
                 Tables\Columns\TextColumn::make('violationType.name')
-                ->label('Jenis Pelanggaran')
+                    ->label('Jenis Pelanggaran')
+                    ->limit(50)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('violationType.points')
                     ->label('Poin'),
@@ -70,7 +76,10 @@ class ViolationsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                ->label('Tambah Pelanggaran')
+                ->icon('heroicon-o-plus')
+                ->color('danger'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

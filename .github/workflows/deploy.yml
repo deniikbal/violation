@@ -3,11 +3,11 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main
+      - sheana  # Ganti dengan branch yang akan di-deploy
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: debian 6.1.99-1
 
     steps:
       # Langkah 1: Checkout kode dari repositori
@@ -18,9 +18,12 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
-          host: 18.136.203.93   # Ganti dengan IP VPS Anda
-          username: ubuntu  # Ganti dengan username SSH Anda
+          host: 54.179.244.201  # Ganti dengan IP VPS Anda
+          username: admin  # Ganti dengan username SSH Anda
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Gunakan private key yang disimpan di GitHub Secret
           script: |
-            cd /var/www/violation  # Ganti dengan path ke repositori di VPS
-            git pull origin main
+            cd /var/www/dev_sman1ban_usr/data/www/dev.sman1bantarujeg.sch.id/violation  # Ganti dengan path ke repositori di VPS
+            git pull origin sheana # Ganti dengan branch yang akan di-deploy
+            composer install --no-dev
+            composer update
+            php artisan migrate

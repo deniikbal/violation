@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Category;
@@ -72,6 +73,7 @@ class ViolationResource extends Resource
 
                 Forms\Components\DatePicker::make('date')
                 ->label('Tanggal')
+                ->maxDate(Carbon::today()->format('Y-m-d'))
                 ->required(),
             ]);
     }
@@ -85,6 +87,7 @@ class ViolationResource extends Resource
                 ->searchable(),
                 Tables\Columns\TextColumn::make('violationType.name')
                     ->label('Jenis Pelanggaran')
+                    ->limit(50)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('violationType.points')
                     ->label('Poin'),

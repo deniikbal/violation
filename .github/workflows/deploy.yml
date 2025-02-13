@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: debian 6.1.99-1
+    runs-on: debian-latest
 
     steps:
       # Langkah 1: Checkout kode dari repositori

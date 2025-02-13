@@ -47,7 +47,9 @@ class ClassroomResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')
+                    ->label('Nama Kelas')
+                    ->searchable(),
                 TextColumn::make('teacher'),
                 TextColumn::make('students_count') // Menampilkan jumlah siswa
                     ->label('Jumlah Siswa')

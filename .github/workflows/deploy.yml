@@ -25,6 +25,3 @@ jobs:
           script: |
             cd /var/www/dev_sman1ban_usr/data/www/dev.sman1bantarujeg.sch.id/violation  # Ganti dengan path ke repositori di VPS
             git pull origin sheana # Ganti dengan branch yang akan di-deploy
-            composer install --no-dev
-            composer update
-            php artisan migrate

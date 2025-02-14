@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, debian, 6.1.99-1]
+    runs-on: [self-hosted, debian, bookworm]
 
 
     steps:

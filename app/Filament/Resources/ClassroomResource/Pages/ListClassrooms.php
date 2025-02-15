@@ -23,16 +23,12 @@ class ListClassrooms extends ListRecords
         return [
             Actions\CreateAction::make(),
             \EightyNine\ExcelImport\ExcelImportAction::make()
-            ->label('Import Kelas')
-            ->slideOver()
-            ->icon('heroicon-o-document-arrow-down')
-            ->color('danger')
-            ->use(ClassroomImport::class),
-            // ImportAction::make()
-            //     ->label('Import Kelas')
-            //     ->icon('heroicon-o-document-arrow-down')
-            //     ->color('danger')
-            //     ->importer(ClassroomImporter::class)
+                ->label('Import Kelas')
+                ->slideOver()
+                ->icon('heroicon-o-document-arrow-down')
+                ->color('danger')
+                ->use(ClassroomImport::class),
+
         ];
     }
 }

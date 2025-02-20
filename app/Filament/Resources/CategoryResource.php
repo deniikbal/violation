@@ -20,6 +20,12 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
+    public static function getNavigationBadge(): ?string
+    {
+        // Menghitung total siswa di database
+        return Category::count();
+    }
+
 
     public static function form(Form $form): Form
     {

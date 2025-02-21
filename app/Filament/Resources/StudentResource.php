@@ -113,7 +113,8 @@ class StudentResource extends Resource
                             }
                         });
                     }
-                }),//penutup filter
+                }),
+                //penutup filter
         ])//ini penutup array
         ->actions([
             Tables\Actions\EditAction::make(),

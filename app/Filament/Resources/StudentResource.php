@@ -76,22 +76,21 @@ class StudentResource extends Resource
                 ->label('Filter Kelas')
                 ->searchable()
                 ->preload(),
-                Filter::make('total_points_range')
-                ->label('Filter Total Poin Pelanggaran')
-                ->form([
-                    Select::make('total_points_range')
-                        ->options([
-                            '<30' => 'Kurang dari 30 Poin',
-                            '30-60' => '30 - 60 Poin',
-                            '60-90' => '60 - 90 Poin',
-                            '>90' => 'Lebih dari 90 Poin',
-                        ])
-                        ->label('Pilih Rentang Poin'),
-                ])
+            //awal select
+            Filter::make('total_points_range')
+            ->label('Filter Total Poin Pelanggaran')
+            ->form([
+                Select::make('total_points_range')
+                    ->options([
+                        '<30' => 'Kurang dari 30 Poin',
+                        '30-60' => '30 - 60 Poin',
+                        '60-90' => '60 - 90 Poin',
+                        '>90' => 'Lebih dari 90 Poin',])
+                    ->label('Pilih Rentang Poin'),
+                ])//Pentutup form
                 ->query(function ($query, array $data) {
                     if (!empty($data['total_points_range'])) {
                         $range = $data['total_points_range'];
-
                         $query->whereHas('violations', function ($q) use ($range) {
                             $q->join('violation_types', 'violations.violation_type_id', '=', 'violation_types.id')
                               ->selectRaw('student_id, SUM(violation_types.points) as total')
@@ -114,8 +113,8 @@ class StudentResource extends Resource
                             }
                         });
                     }
-                }),
-        ])
+                }),//penutup filter
+        ])//ini penutup array
         ->actions([
             Tables\Actions\EditAction::make(),
             Action::make('download')

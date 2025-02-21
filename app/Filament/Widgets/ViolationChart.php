@@ -12,25 +12,25 @@ class ViolationChart extends ChartWidget
 
     protected function getData(): array
     {
-    //     $data = Violation::select(
-    //         DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
-    //         DB::raw('COUNT(*) as total')
-    //     )
-    //     ->groupBy('month')
-    //     ->orderBy('month')
-    //     ->get();
+        $data = Violation::select(
+            DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+            DB::raw('COUNT(*) as total')
+        )
+        ->groupBy('month')
+        ->orderBy('month')
+        ->get();
 
     // // Ekstrak label (bulan) dan nilai (total pelanggaran)
     //     $labels = $data->pluck('month')->toArray();
     //     $values = $data->pluck('total')->toArray();
 
-    $data = Violation::select(
-        DB::raw('TO_CHAR(date, \'YYYY-MM\') as month'),
-        DB::raw('COUNT(*) as total')
-    )
-    ->groupBy('month')
-    ->orderBy('month')
-    ->get();
+    // $data = Violation::select(
+    //     DB::raw('TO_CHAR(date, \'YYYY-MM\') as month'),
+    //     DB::raw('COUNT(*) as total')
+    // )
+    // ->groupBy('month')
+    // ->orderBy('month')
+    // ->get();
 
     // Ekstrak label (bulan) dan nilai (total pelanggaran)
     $labels = $data->pluck('month')->toArray();

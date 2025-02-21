@@ -15,19 +15,19 @@ class StatsOverview extends BaseWidget
     {
         return [
             Stat::make('Jumlah User', User::count())
-                ->description('Semua User')
+                ->description('User')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
             Stat::make('Jmlah Siswa', Student::count())
-                ->description('Semua Siswa')
+                ->description('Siswa')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
             Stat::make('Jumlah Kelas', Classroom::count())
-                ->description('Semua Pelanggaran')
+                ->description('Kelas')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
             Stat::make('Jumlah Pelanggaran', Violation::count())
-                ->description('Semua Pelanggaran')
+                ->description('Pelanggaran')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
         ];

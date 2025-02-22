@@ -1,4 +1,4 @@
-name: Deploy Branch Sheanaok
+name: Deploy Branch Running
 
 on:
   push:

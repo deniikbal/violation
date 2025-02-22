@@ -1,4 +1,4 @@
-name: Deploy Branch Sheana
+name: Deploy Branch Sheanaok
 
 on:
   push:

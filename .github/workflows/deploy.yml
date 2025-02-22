@@ -1,14 +1,13 @@
-name: Deploy to VPS
+name: Deploy Branch Sheana
 
 on:
   push:
     branches:
-      - sheana  # Ganti dengan branch yang akan di-deploy
+      - main
 
 jobs:
   deploy:
-    runs-on: [self-hosted, debian, bookworm]
-
+    runs-on: ubuntu-latest
 
     steps:
       # Langkah 1: Checkout kode dari repositori
@@ -19,9 +18,9 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
-          host: 54.179.244.201  # Ganti dengan IP VPS Anda
-          username: admin  # Ganti dengan username SSH Anda
+          host: 54.254.222.62   # Ganti dengan IP VPS Anda
+          username: ubuntu  # Ganti dengan username SSH Anda
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Gunakan private key yang disimpan di GitHub Secret
           script: |
-            cd /var/www/dev_sman1ban_usr/data/www/dev.sman1bantarujeg.sch.id/violation  # Ganti dengan path ke repositori di VPS
-            git pull origin sheana # Ganti dengan branch yang akan di-deploy
+            cd /var/www/violation  # Ganti dengan path ke repositori di VPS
+            git pull origin sheana

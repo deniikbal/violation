@@ -26,7 +26,7 @@
   <!-- Hero Section -->
   <section class="bg-green-600 text-white py-20">
     <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl font-bold mb-4">Rekap Pelanggaran Siswa</h1>
+      <h1 class="text-4xl font-bold mb-4">Rekap Pelanggaran Guru</h1>
       <p class="text-lg mb-8">Aplikasi ini membantu sekolah dalam merekap data pelanggaran siswa secara efisien.</p>
       <a href="{{ route('filament.admin.auth.login') }}" class="bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
         Mulai Sekarang

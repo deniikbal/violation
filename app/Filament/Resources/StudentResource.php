@@ -8,6 +8,7 @@ use App\Models\Student;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Illuminate\Support\Facades\DB;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
@@ -88,13 +89,14 @@ class StudentResource extends Resource
                         '>90' => 'Lebih dari 90 Poin',])
                     ->label('Pilih Rentang Poin'),
                 ])//Pentutup form
-                ->query(function ($query, array $data) {
+                ->query(function (Builder $query, array $data) {
                     if (!empty($data['total_points_range'])) {
                         $range = $data['total_points_range'];
                         $query->whereHas('violations', function ($q) use ($range) {
                             $q->join('violation_types', 'violations.violation_type_id', '=', 'violation_types.id')
-                              ->selectRaw('student_id, SUM(violation_types.points) as total')
-                              ->groupBy('student_id');
+                              ->select('violations.student_id') // Hanya pilih kolom yang relevan
+                              ->addSelect(DB::raw('SUM(violation_types.points) as total')) // Agregasi poin
+                              ->groupBy('violations.student_id'); // Kelompokkan berdasarkan student_id
 
                             // Menambahkan kondisi berdasarkan rentang poin
                             switch ($range) {
